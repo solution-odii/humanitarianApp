@@ -74,7 +74,7 @@ class CardPageState extends State<CardPage> {
                             child: new DropdownButtonHideUnderline(
                                 child: new InputDecorator(
                                   decoration: const InputDecoration(
-                                    border: OutlineInputBorder(),
+                                    border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(30))),
                                     isDense: true,
                                     hintText: 'Checkout method',
                                   ),
@@ -129,9 +129,6 @@ class CardPageState extends State<CardPage> {
         ..amount = 10000
         ..email = 'customer@email.com'
       ..reference = await _fetchAccessCodeFrmServer(_getReference());
-
-
-
 
 
       CheckoutResponse response = await PaystackPlugin.checkout(context,
@@ -246,8 +243,7 @@ class CardPageState extends State<CardPage> {
     if (Platform.isIOS) {
       widget = new CupertinoButton(
         onPressed: function,
-        padding: const EdgeInsets.symmetric(horizontal: 15.0),
-        color: CupertinoColors.activeBlue,
+        color: CupertinoColors.activeOrange,
         child: new Text(
           string,
           maxLines: 1,
@@ -257,8 +253,9 @@ class CardPageState extends State<CardPage> {
     } else {
       widget = new RaisedButton(
         onPressed: function,
-        color: Colors.blueAccent,
+        color: Colors.orange,
         textColor: Colors.white,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(40))),
         padding: const EdgeInsets.symmetric(vertical: 13.0, horizontal: 10.0),
         child: new Text(
           string.toUpperCase(),

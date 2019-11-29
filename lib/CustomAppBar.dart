@@ -30,6 +30,7 @@ class CustomAppBar extends StatelessWidget{
      ); 
 
      bottomBarItems.add(
+
       BottomNavigationBarItem(
         icon: Icon(
           Icons.info,
